@@ -17,13 +17,15 @@ class Snake {
     };
 
     // Update snake function
-    this.update = function () {
+    this.update = () => {
       for (let i = 0; i < this.tail.length - 1; i++) {
         this.tail[i] = this.tail[i + 1];
       }
       this.tail[this.total - 1] = { x: this.x, y: this.y };
       this.x += this.xSpeed;
       this.y += this.ySpeed;
+
+      // Penetrable walls
       if (this.x > canvas.width) {
         this.x = 0;
       }
